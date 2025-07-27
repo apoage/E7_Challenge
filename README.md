@@ -36,14 +36,11 @@ e7-challenge/
 ├── challenge_prompt.md          # Main AI instructions
 ├── firmware/                    # Nokia E7 firmware files
 │   ├── LICENSE.md              # Educational use license for firmware
-│   ├── RM-626_111.040.1511_79u_prd.core.fpsx
-│   ├── RM-626_111.040.1511_01.01_Euro1_QW_79u_prd.rofs2.fpsx
-│   ├── RM-626_111.040.1511_C00.01_79u_prd.rofs3.fpsx
-│   ├── RM-626_111.040.1511_U01.01_79u.uda.fpsx
-│   ├── RM626_APE_ONLY_ENO_11w36_v0.037.fpsx
-│   ├── RM626_0591821_111.040.1511_015.dcp
-│   ├── RM626_0591821_111.040.1511_015.vpl
-│   └── RM626_0591821_111.040.1511_015_signature.bin
+│   ├── UNPACKING.md            # Firmware extraction instructions
+│   ├── RM-626-firmware.7z.001 # Split archive part 1 (download from releases)
+│   ├── RM-626-firmware.7z.002 # Split archive part 2 (download from releases)
+│   ├── ...                     # Additional split archive parts
+│   └── (extracted firmware files will appear here after unpacking)
 ├── documentation/               # Hardware documentation
 │   ├── LICENSE.md              # Educational use license for documentation
 │   ├── nokia_e7-00_rm-626_service_manual-12_v1.pdf
@@ -56,11 +53,15 @@ e7-challenge/
     └── (Generated code and documentation will appear here)
 ```
 
+**Note:** Firmware files are distributed as split archives in GitHub releases due to size limitations. See `firmware/UNPACKING.md` for extraction instructions.
+
 ## Prerequisites
 
 - **Git** for cloning the repository
+- **7zip** for extracting firmware files (`p7zip-full` on Linux, download from 7-zip.org on Windows)
 - **AI CLI tool** for your chosen platform (see options below)
 - **Docker** (optional, for isolated build environments)
+- **Disk space:** ~400MB for firmware extraction and challenge artifacts
 
 ## Getting Started
 
@@ -70,7 +71,22 @@ git clone https://github.com/your-username/e7-challenge.git
 cd e7-challenge
 ```
 
-### 2. Choose Your AI Agent
+### 2. Extract Firmware Files
+The Nokia E7 firmware is distributed as compressed split archives due to GitHub size limits.
+
+**Quick Setup:**
+```bash
+# Download firmware from releases page (split archive parts)
+# Extract firmware files
+7z x RM-626-firmware.7z.001
+
+# Verify extraction
+ls -la firmware/
+```
+
+**Detailed Instructions:** See [firmware/UNPACKING.md](firmware/UNPACKING.md) for complete setup instructions, troubleshooting, and alternative download methods.
+
+### 3. Choose Your AI Agent
 
 This challenge is designed to work with any capable AI agent. Select your preferred platform:
 
